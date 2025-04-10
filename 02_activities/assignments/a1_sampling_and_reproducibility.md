@@ -10,11 +10,36 @@ Modify the number of repetitions in the simulation to 100 (from the original 100
 
 Alter the code so that it is reproducible. Describe the changes you made to the code and how they affected the reproducibility of the script file. The output does not need to match Whitby’s original blogpost/graphs, it just needs to produce the same output when run multiple times
 
-# Author: YOUR NAME
+# Author: Anna Bojagora
 
 ```
-Please write your explanation here...
 
+Where sampling occurring:
+1) Sampling during infection
+code: infected_indices = np.random.choice(ppl.index, size=int(len(ppl) * ATTACK_RATE), replace=False)
+
+Using np.random.choice a NumPy array of infected individuals is created with randomly selected indices from the ppl dataframe which has 1000 people in it. 
+
+The sampling frame is 1000, and the sample size is 100 because the attack rate is 0.10 (10% of 1000 is 100)
+
+
+2) Sampling during primary contact
+code: ppl.loc[ppl['infected'], 'traced'] = np.random.rand(sum(ppl['infected'])) < TRACE_SUCCESS
+
+Using np.random.rand a random NumPy array is generated for the infected individuals and each number is compared to the TRACE_SUCCESS rate which is 0.2. If the number is smaller than 0.2 the primary contact is traced
+
+
+3) Sampling during secondary contact tracing
+event_trace_counts = ppl[ppl['traced'] == True]['event'].value_counts()
+  events_traced = event_trace_counts[event_trace_counts >= SECONDARY_TRACE_THRESHOLD].index
+  ppl.loc[ppl['event'].isin(events_traced) & ppl['infected'], 'traced'] = True
+
+Using value_counts the number of traced individuals is counted for each event.
+If an event has a traced count which is greater or equal to the SECONDARY_TRACE_THRESHOLD of 2 then all infected people at the event are also traced.
+
+The distribution is biased towards large events. It relates to the article which stated that large events are often overrepresented (because they are more likely to reach the secondary trace threshold) and smaller events are underrepresented.
+
+The code does not reproduce the graph from the blog post. The infections vs traced individuals are fairly aligned compared to the graph from the article. The article shows that the observed proportion is more frequent than the true proportion. Changing the range to 100 increases teh spread of the data. 1000 repititions results in a smoother and symmetrical histogram that is centered. The graph appears to be well overlayed (between infections vs. traced) with both 100 or 1000 repititions. 
 ```
 
 
