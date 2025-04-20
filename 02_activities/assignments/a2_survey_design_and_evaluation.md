@@ -40,30 +40,26 @@ For the **Canadian General Social Survey on Giving, Volunteering, and Participat
 
 ## Part A - Survey Design: 
 
-The number of your chosen topic: `#`
+The number of your chosen topic: `# 3`
 
 Describe the purpose of your survey:
 ```
-write your answer here...
+The purpose of the survey is to determine if age influences music taste. Specifically it's relation to perception of popular music and if it changes over time.
 ```
 
 Describe your target population, sampling frame, sampling units, and observational units:
 ```
-write your answer here...
+The target population would be people over the age of 18 that are in Canada and listen to music. Sampling frame would be attendees at music festivals and students at university campus. Sampling units would be individuals and observational units are individuals within the survey population.
 ```
 
 Your 5-10 question survey:
 ```
-1. write your question here...
-2. write your question here...
-3. write your question here...
-4. write your question here...
-5. write your question here...
-6. write your question here... (optional)
-7. write your question here... (optional)
-8. write your question here... (optional)
-9. write your question here... (optional)
-10. write your question here... (optional)
+1. What is your age?
+2. What music genres do you listen to?
+3. Do you think your music change has changed over time?
+4. How often do you listen to pop music?
+5. Would you say you listened to pop more or less when you were younger?
+
 ```
 
 ## Part B - Survey Evaluation:
@@ -71,7 +67,20 @@ Your 5-10 question survey:
 Identify and describe survey features:
 
 ```
-write your answer here
+
+1. Sample type : all persons 15 years of age and older living in the ten provinces of Canada. It excludes full-time residents of institutions
+2. Sample size: 24,000
+3. Target population: 50,000
+4. Sampling frame: 40,000
+5. Survey mode(s): electronic questionnaire  
+6. Timeline: 2018-09-04 to 2018-12-28
+7. Response rate: 41.9%
+8. Weights: WGHT_PER (estimates number of persons having one or several given characteristics), bootstrap weights (design-based variance estimation)
+9. Data processing: Error detection was completed using SSPE set of generalized processing steps to obtain high quality outputs. Edits were performed automatically and manually. They were edits on family, consistency and flow to ensure consistency of the survey data. The CATI system was used to edit the flow of the questionnaire and identify out of range values. Data was also evaluated for quality using validation measures: analysis of changes over time, verification of estimates through cross-tabulations, confrontation with other similar sources of data. 
+10. Cleaning, imputation, etc: Donor records selected through score function were used for imuputations. The donor record with highest score was deemed the nearest donor and chosen to fill missing information of non respondents.
+11. Sources of error: The survey states that the results of the survey remain subject to both sampling and non-sampling errors. There is high sampling variability between subgroups of the population (95% level). Non sampling errors include imperfect coverage and non-response.
+12. Limitations, known biases, etc: Limitations of the survey include coverage: households without telephones and households with telephone services that are not covered by the current frame were excluded from the surveyed population. 
+13. Link to documentation and any additional sources used
 ```
 
 ## Rubric
